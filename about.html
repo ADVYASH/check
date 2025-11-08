@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Aafat Gaming</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 15px;
+      background: #000;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* 🌌 Animated Background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjg0dHllYXM5Zzd3ZXE4MWFubHZzZWM4emN2eHduN3QwY2kybm9oYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/U3qYN8S0j3bpK/giphy.gif') 
+                  no-repeat center center fixed;
+      background-size: cover;
+      opacity: 0.25;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      animation: glowText 2s ease-in-out infinite alternate;
+    }
+
+    header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: #00ffff;
+      text-shadow: 0 0 25px #00ffff;
+    }
+
+    header p {
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      color: #aaa;
+      margin-top: 10px;
+    }
+
+    .about-container {
+      width: 100%;
+      max-width: 1000px;
+      background: rgba(20, 20, 35, 0.85);
+      border-radius: 15px;
+      box-shadow: 0 0 25px #00ffff33;
+      padding: 25px 20px;
+      animation: fadeIn 1s ease-in-out;
+      z-index: 1;
+      position: relative;
+    }
+
+    h2 {
+      color: #00ffff;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      text-shadow: 0 0 12px #00ffff;
+      border-bottom: 2px solid #00ffff55;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #ddd;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.2);
+    }
+
+    .highlight {
+      color: #00ffff;
+      font-weight: 700;
+      text-shadow: 0 0 15px #00ffff;
+    }
+
+    /* Buttons */
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 10px 18px;
+      background: #00ffff22;
+      color: #00ffff;
+      border: 1px solid #00ffff55;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      text-shadow: 0 0 10px #00ffff;
+      box-shadow: 0 0 15px #00ffff33;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .back-button:hover {
+      background: #00ffff;
+      color: #000;
+      box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+    }
+
+    .button-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .glow-button {
+      padding: 12px 20px;
+      background: #00ffff22;
+      color: #00ffff;
+      border: 1px solid #00ffff55;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      text-shadow: 0 0 10px #00ffff;
+      box-shadow: 0 0 15px #00ffff33;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .glow-button:hover {
+      background: #00ffff;
+      color: #000;
+      box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+    }
+
+    .youtube-button {
+      background: #ff000022;
+      color: #ff0000;
+      border: 1px solid #ff000055;
+      text-shadow: 0 0 10px #ff0000;
+      box-shadow: 0 0 15px #ff000033;
+    }
+
+    .youtube-button:hover {
+      background: #ff0000;
+      color: #fff;
+      box-shadow: 0 0 25px #ff0000, 0 0 40px #ff0000;
+    }
+
+    .discord-button {
+      background: #5865f222;
+      color: #5865f2;
+      border: 1px solid #5865f255;
+      text-shadow: 0 0 10px #5865f2;
+      box-shadow: 0 0 15px #5865f233;
+    }
+
+    .discord-button:hover {
+      background: #5865f2;
+      color: #fff;
+      box-shadow: 0 0 25px #5865f2, 0 0 40px #5865f2;
+    }
+
+    .instagram-button {
+      background: linear-gradient(45deg, #fd1d1d55, #833ab455, #fcb04555);
+      color: #ff66cc;
+      border: 1px solid #ff66cc55;
+      text-shadow: 0 0 10px #ff66cc;
+      box-shadow: 0 0 15px #ff66cc33;
+    }
+
+    .instagram-button:hover {
+      background: linear-gradient(45deg, #fcb045, #fd1d1d, #833ab4);
+      color: #fff;
+      box-shadow: 0 0 25px #ff66cc, 0 0 40px #ff66cc;
+    }
+
+    /* Team Section */
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .team-member {
+      background: rgba(30, 30, 45, 0.8);
+      border: 1px solid #00ffff55;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 15px #00ffff22;
+    }
+
+    .team-member:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 30px #00ffff88;
+    }
+
+    .team-member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid #00ffff55;
+      margin-bottom: 10px;
+      object-fit: cover;
+    }
+
+    .team-member h3 {
+      color: #00ffff;
+      margin-bottom: 5px;
+    }
+
+    .team-member p {
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: clamp(0.8rem, 2vw, 1rem);
+      color: #888;
+      text-align: center;
+    }
+
+    footer a {
+      color: #00ffff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    footer a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 15px #00ffff; }
+      to { text-shadow: 0 0 40px #00ffff; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .about-container { padding: 20px 15px; }
+      .button-container { right: 10px; bottom: 10px; }
+      .back-button { top: 10px; left: 10px; padding: 8px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-button">⮌ Undo</a>
+
+  <header>
+    <h1>💎 About Aafat Gaming 💎</h1>
+    <p>Welcome to Aafat Gaming — where chaos is fun, energy is real, and everyone’s part of the family ⚡</p>
+  </header>
+
+  <div class="about-container">
+    <section>
+      <h2>💎 About Aafat Gaming</h2>
+      <p><span class="highlight">Aafat Gaming</span> isn’t just a gaming name — it’s a <span class="highlight">movement, a vibe, and a family 💫</span>. Founded by <span class="highlight">Meet</span>, a passionate <span class="highlight">25-year-old gamer</span> from <span class="highlight">Mumbai</span>, now living in <span class="highlight">Delhi</span>, Aafat Gaming was built from one dream — to make gaming a space filled with <span class="highlight">fun, energy, and good vibes 🎮✨</span>.</p>
+      <p>What started as a simple idea has grown into a <span class="highlight">thriving community</span> of gamers, creators, and friends who come together to laugh, compete, and create unforgettable memories. At <span class="highlight">Aafat Gaming</span>, we don’t just play games — we live them ❤️.</p>      
+    </section>
+
+    <section>
+      <h2>🎮 The Story Behind Aafat Gaming</h2>
+      <p>For <span class="highlight">Meet</span>, gaming was never just a hobby — it was a <span class="highlight">way to connect 🌍</span>. From his early days in Mumbai to his gaming setup in Delhi, he’s always believed that gaming is about <span class="highlight">people, moments</span>, and <span class="highlight">stories</span> — not just scores.</p>
+      <p>When he began streaming, his goal was simple: to create a place where everyone could <span class="highlight">be themselves</span>, share laughter, and escape the stress of daily life for a while 🌈. That dream became <span class="highlight">Aafat Gaming</span> — a world of laughter, energy, and authentic chaos 😎.</p>
+      <p>From intense <span class="highlight">BGMI battles</span>, 🔫 to creative <span class="highlight">Minecraft builds</span>, 🧱, every stream is filled with <span class="highlight">real emotions, team spirit, and pure entertainment</span>,. No fake reactions, no dull moments — just <span class="highlight">raw, real fun</span>, that makes you feel like you’re gaming with your squad 💥.</p>
+    </section>
+
+    <section>
+      <h2>🔥 The Aafat Spirit</h2>
+      <p>The heart of <span class="highlight">Aafat Gaming</span> beats with <span class="highlight">energy, positivity</span>, and <span class="highlight">authenticity 💎</span>. Every moment is about bringing people together — not dividing them. The Aafat Family believes in one golden rule: <span class="highlight">keep the vibes clean, fun, and full of life ⚡</span>.</p>
+      <p>💫 <span class="highlight">Positivity</span> – Every stream, every chat, every vibe stays friendly and fun.</p>
+      <p>💪 <span class="highlight">Passion</span> – We give our all — in-game and in the community.</p>
+      <p>🤝 <span class="highlight">Respect</span> – No hate, no toxicity, no drama — just good energy.</p>
+    </section>
+
+    <section>
+      <h2>🧠 The Aafat Family</h2>
+      <p>The <span class="highlight">Aafat Family</span> is what makes everything truly special 🫶. Our viewers, players, and supporters aren’t just fans — they’re <span class="highlight">friends, teammates</span>, and <span class="highlight">partners in chaos.</span></p>
+      <p>💬 <span class="highlight">Respect over toxicity</span></p>
+      <p>💪 <span class="highlight">Teamwork over ego</span></p>
+      <p>🎉 <span class="highlight">Fun over drama</span></p>
+      <p>From <span class="highlight">Discord game nights 🎧</span> to <span class="highlight">live stream shoutouts 🎙️</span>, every member of the Aafat Family plays a role in keeping the community alive and kicking. When you join <span class="highlight">Aafat Gaming,</span> you’re not just watching — you’re <span class="highlight">part of the squad 💥</span>.</p>
+    </section>
+
+    <section>
+      <h2>🚀 What Makes Aafat Gaming Different</h2>
+      <p>In a world full of gaming channels, <span class="highlight">Aafat Gaming</span> stands out for one reason — <span class="highlight">authenticity 🔥</span>.</p>
+      <p>Every stream is packed with <span class="highlight">high energy ⚡, real laughter 😂,</span> and <span class="highlight">unfiltered fun.</span> Our viewers aren’t just spectators — they’re <span class="highlight">part of the story.</span> Whether it’s cheering during a clutch moment or spamming emojis in chat, the Aafat community is always <span class="highlight">alive and involved.</span></p>
+      <p>🎮 <span class="highlight">Epic Gameplay</span> – BGMI, Minecraft, and everything in between.</p>
+      <p>🎥 <span class="highlight">Interactive Streams</span> – Viewers are always part of the action.</p>
+      <p>🎨 <span class="highlight">Unique Aafat Style</span> – Clean design, bold visuals, and creative flair.</p>
+      <p>🏆 <span class="highlight">Zero Toxicity Zone</span> – Only good vibes allowed here!</p>
+      <p>We don’t just play games — we <span class="highlight">build experiences</span> that you’ll never forget 💥.</p>
+    </section>
+
+    <section>
+      <h2>❤️ Meet the Creator</h2>
+      <p>Behind the madness, laughter, and late-night streams is <span class="highlight">Meet</span> — the face and heart of <span class="highlight">Aafat Gaming 🎧</span>.</p>
+      <p>Born and raised in <span class="highlight">Mumbai</span> 🏙️, now vibing in <span class="highlight">Delhi</span> 🌆, Meet turned his love for gaming into a creative movement. With his energetic personality, funny reactions, and down-to-earth nature, he’s built a community that feels more like a group of friends hanging out than a fanbase.</p>
+      <p>“Play hard. Laugh louder. Keep it Aafat.” 💣</p>
+      <p>For Meet, gaming isn’t just about content — it’s about <span class="highlight">connection, chaos, and community</span>. His goal? To make every stream feel like home 🏡 for gamers everywhere.</p>
+    </section>
+
+    <section>
+      <h2>💎 Join the Aafat Journey</h2>
+      <p>If you love gaming, laughter, and good vibes — you’re already one of us 😍.</p>
+      <p>Join the <span class="highlight">Aafat Family</span> today and be part of something epic:</p>
+      <p>🎥 <span class="highlight">Subscribe on YouTube</span> – Catch all the action, clutches, and fun moments.</p>
+      <p>💬 <span class="highlight">Join our Discord</span> – Hang out, chat, and play with fellow gamers.</p>
+      <p>📸 <span class="highlight">Follow on Instagram</span> – Stay updated with behind-the-scenes content and daily chaos.</p>
+      <p>Everyone’s welcome here — no matter who you are or what you play. Bring your <span class="highlight">energy ⚡</span>, your <span class="highlight">humor 😂</span>, and your <span class="highlight">Aafat spirit 🔥</span> — and let’s make memories together.</p>
+      <p>Because at the end of the day, <span class="highlight">Aafat Gaming</span> isn’t just a brand — it’s a <span class="highlight">family 💖</span>.</p>
+      <p>We play hard, we laugh louder, and we never stop having fun.</p>
+      <p>🎮 <span class="highlight">Aafat Gaming — The Game Never Stops! ⚡🔥</span></p>
+    </section>
+
+    <section>
+      <h2> </h2>
+      <div class="team">
+        <div class="team-member">
+          <img src="https://cdn.discordapp.com/attachments/1311247446051131453/1436025157251760189/0001_1_a-stylish-portrait-photograph-of-a-young_0x9Zo6jAQ3ecyDls4YaQ9A_T5KiIawuQpWNXj7O7siFVg.jpeg?ex=690e1a25&is=690cc8a5&hm=915a6592eb8d4b781937685235a2f1425450e996fbe5e81bfc7f2574bc5257ed&" alt="Owner">
+          <h3>Meet / Aafat Gaming</h3>
+          <p>💎 Founder, Streamer & Content creator</p>
+        </div>
+      </div>
+    </section>
+
+  <div class="button-container">
+    <a href="https://youtube.com/" target="_blank" class="glow-button youtube-button">▶ YouTube</a>
+    <a href="https://discord.gg/" target="_blank" class="glow-button discord-button">💬 Discord</a>
+    <a href="https://instagram.com/" target="_blank" class="glow-button instagram-button">📸 Instagram</a>
+  </div>
+
+  <footer>
+    <p>© 2025 Aafat Gaming | All Rights Reserved </p>
+  </footer>
+</body>
+</html>
